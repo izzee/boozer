@@ -2,19 +2,20 @@ import React from 'react'
 
 class CocktailDetails extends React.Component {
 
-  renderDetails(){
+  renderDetails = () => {
+    console.log('x')
     return <div id="cocktail-details">
-        <h3>{this.props.details.name}</h3>
+        <h4>{this.props.details.name}</h4>
         <p id="cocktail-description">{this.props.details.description}</p>
         <h4>INGREDIENTS:</h4>
         <ul>{this.renderIngredients()}</ul>
         <h4>INSTRUCTIONS:</h4>
         <p>{this.props.details.instructions}</p>
-
       </div>
   }
 
-  renderIngredients(){
+  renderIngredients = () => {
+
     return this.props.details.proportions.map(
       proportions => <li key={proportions.id}>{proportions.amount} {proportions.ingredient_name}</li>
     )
@@ -22,7 +23,7 @@ class CocktailDetails extends React.Component {
 
   render(){
     return(
-      <div>{this.renderDetails()}</div>
+      <div id="details-container">{this.renderDetails()}</div>
     )
   }
 

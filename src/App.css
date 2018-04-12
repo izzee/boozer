@@ -28,16 +28,28 @@
 }
 #main-container {
   width: 700px; height: 96vh;
-  padding-top: 2vh;
-  margin: auto;
+  margin: 2vh auto;
   display: flex;
   flex-direction: column;
 }
 
 #top-bar {
-  width: 660px; height: 75px;
+  z-index:10;
+  width: 640px; height: 75px;
   border: 1px solid black;
-  padding-left: 40px;
+  background-color: white;
+  padding: 0 30px;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+
+#top-bar p{
+  line-height: 62px;
+}
+#top-bar p:hover{
+  font-weight: bold;
+  cursor: pointer;
 }
 
 #main-content{
@@ -46,12 +58,17 @@
   overflow: scroll;
   border: 1px solid black;
   flex: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
 }
 
 #cocktail-list{
+  flex: 1;
   position: absolute;
   width: 250px;
   list-style: none;
+  padding: 8px 30px;
 }
 
 #cocktail-list li:hover{
@@ -59,26 +76,50 @@
   cursor: pointer;
 }
 #details-container {
+  margin: auto;
   position: fixed;
-  width: 700px;
+  width: 325px;
+  height: 96vh;
+  transform: translate(350px, -79px);
+  overflow: scroll;
 }
 
 #cocktail-details {
-  max-width: 250px;
-  padding: 0 20px;
   position: absolute;
-  right: 25px; top: 25px;
+  right: 0px; top: 100px;
+  max-width: 300px;
+  padding: 10px 20px;
   border: 1px solid black;
+
 }
 #cocktail-details p, li, ul{
   font-size: 14px;
 }
-
 #cocktail-details ul{
   padding: 0px;
   list-style-type: none;
 }
+#cocktail-details h4{
+  font-size: 14px;
+}
 
 #cocktail-description {
   font-style: italic;
+}
+
+#add-cocktail-container {
+  z-index: 100;
+  position: absolute;
+  right: 0px; top: 100px;
+  width: 275px;
+  padding: 10px 20px;
+  border: 1px solid black;
+}
+
+#add-cocktail-container span {
+  display: block;
+}
+#add-cocktail-container input{
+  position: absolute;
+  right: 10px;
 }
