@@ -3,10 +3,10 @@ import React from 'react'
 class CocktailDetails extends React.Component {
 
   renderDetails = () => {
-    console.log('x')
-    return <div id="cocktail-details">
+
+    return <div className="details-container">
         <h4>{this.props.details.name}</h4>
-        <p id="cocktail-description">{this.props.details.description}</p>
+        <p>{this.props.details.description}</p>
         <h4>INGREDIENTS:</h4>
         <ul>{this.renderIngredients()}</ul>
         <h4>INSTRUCTIONS:</h4>
@@ -23,7 +23,7 @@ class CocktailDetails extends React.Component {
 
   render(){
     return(
-      <div id="details-container">{this.renderDetails()}</div>
+      <div >{this.renderDetails()}</div>
     )
   }
 
