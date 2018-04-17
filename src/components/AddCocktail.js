@@ -63,23 +63,33 @@ class AddCocktail extends React.Component {
           <label>NAME: </label>
           <input onChange={this.handleNameChange}></input>
         </div>
+        <label>DESCRIPTION: </label>
         <div className="large-input">
-          <label>DESCRIPTION: </label>
           <textarea onChange={this.handleDescriptionChange}></textarea>
         </div>
         <label>INGREDIENTS: </label>
         <div className="ingredients-form">
           {this.state.proportions.map(proportion =>
             <div key={this.state.proportions.indexOf(proportion)} id={this.state.proportions.indexOf(proportion)}>
-              <input className="ingredients-amount"  onChange={this.handleIngredientsAmountChange}placeholder="amount"></input>
-              <input  className="ingredients-name" onChange={this.handleIngredientsNameChange}placeholder="ingredient name"></input>
-              <span className="removeIngredientButton" onClick={this.removeIngredientForm} >×</span>
+              <input
+                className="ingredients-amount"
+                placeholder="amount"
+                onChange={this.handleIngredientsAmountChange}
+                value={this.state.proportions[this.state.proportions.indexOf(proportion)].amount}>
+              </input>
+              <input
+                className="ingredients-name"
+                placeholder="ingredient name"
+                onChange={this.handleIngredientsNameChange}
+                value={this.state.proportions[this.state.proportions.indexOf(proportion)].ingredient_name}>
+              </input>
+              <span className="removeIngredientButton" onClick={this.removeIngredientForm}>×</span>
             </div>
           )}
           <p className="addIngredientButton" onClick={this.addIngredientsForm}>+ add ingredient</p>
         </div>
+        <label>INSTRUCTIONS: </label>
         <div className="large-input">
-          <label>INSTRUCTIONS: </label>
           <textarea onChange={this.handleInstructionsChange}></textarea>
         </div>
         <input type="submit" value="Submit"></input>

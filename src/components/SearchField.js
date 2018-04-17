@@ -9,10 +9,10 @@ export default class SearchField extends React.Component {
   render(){
     return(
       <div>
-        <form>
-          <input placeholder="search..." onChange={this.handleChange}></input>
-        </form>
-      </div>
+         <form>
+           <input placeholder="search..." value={this.props.query} onChange={this.handleChange}></input>
+         </form>
+       </div>
     )
   }
 }
