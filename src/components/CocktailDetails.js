@@ -6,10 +6,23 @@ class CocktailDetails extends React.Component {
     this.props.addToFavorites(this.props.details)
   }
 
+  heartColor = () => {
+    if (this.props.favorites.find(cocktail => cocktail.id === this.props.details.id)){
+      return true
+    }
+
+  }
+
+
   renderDetails = () => {
 
     return <div className="details-container">
-      <button onClick={this.favoriteButton}>0</button>
+      <button
+        className="favoriteButton"
+        onClick={this.favoriteButton}
+        style={{color: this.heartColor() ? 'red' : null }}>
+        ♥
+      </button>
       <h4>{this.props.details.name}</h4>
       <p>{this.props.details.description}</p>
       <h4>INGREDIENTS:</h4>

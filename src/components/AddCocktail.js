@@ -5,10 +5,10 @@ class AddCocktail extends React.Component {
   constructor(){
     super();
     this.state = {
-      name : "",
-      description : "",
-      instructions : "",
-      proportions : [{amount: "", ingredient_name: ""}]
+      name : " ",
+      description : " ",
+      instructions : " ",
+      proportions : [{amount: " ", ingredient_name: " "}]
     }
   }
   // sets drink name state to value of name form input
@@ -45,7 +45,7 @@ class AddCocktail extends React.Component {
   // adds another ingredient form with proportion and ingredient name to custom cocktail form
   addIngredientsForm = () => {
     let proportionsArr = this.state.proportions.slice()
-    proportionsArr.push({amount: "", ingredient_name: ""})
+    proportionsArr.push({amount: " ", ingredient_name: " "})
     this.setState({proportions : proportionsArr})
   }
   // removes an ingredient form with proportion and ingredient name to custom cocktail form

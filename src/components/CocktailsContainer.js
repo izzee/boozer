@@ -117,7 +117,8 @@ class CocktailsContainer extends React.Component {
   }
 
   renderDetails = () => {
-    if(this.state.details){ return <CocktailDetails details={this.state.details} addToFavorites={this.addToFavorites}/>}
+    if(this.state.details){ return <CocktailDetails details={this.state.details} addToFavorites={this.addToFavorites} favorites={this.state.favorites}/>
+    }
   }
   clearState = () => {
     this.setState({
@@ -153,9 +154,18 @@ class CocktailsContainer extends React.Component {
     this.setState({ sortBy : "length" })
   }
   addToFavorites = cocktail => {
-    let favoriteCocktails = [...this.state.favorites, cocktail]
-    console.log(favoriteCocktails)
-    this.setState({favorites : favoriteCocktails})
+    if(this.state.favorites.find(favcocktail => favcocktail.id === cocktail.id)){
+      let favoriteCocktails = [...this.state.favorites]
+      let favIndex = favoriteCocktails.find(favcocktail => favcocktail.id === cocktail.id)
+      favoriteCocktails.splice(favoriteCocktails.indexOf(favIndex))
+      this.setState({
+        favorites : favoriteCocktails,
+        details: null
+      })
+    }else{
+      let favoriteCocktails = [...this.state.favorites, cocktail]
+      this.setState({favorites : favoriteCocktails})
+    }
   }
 
   renderAddForm = () => {
@@ -191,7 +201,6 @@ class CocktailsContainer extends React.Component {
           {<p onClick={this.addACocktail} style={{ fontWeight: this.state.addCocktail ? 'bold' : null}}>CREATE A COCKTAIL</p>}
           {this.renderSearchField()}
         </div>
-
         <div className="list-container">
           <ul>{this.renderCocktailNames()}</ul>
         </div>

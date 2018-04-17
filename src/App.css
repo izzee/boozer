@@ -157,5 +157,19 @@ html, body {
   font-style: italic;
   position: absolute;
   right: 20px; bottom: 0px;
+}
 
+.favoriteButton{
+  border: none;
+  outline: none;
+  position: absolute;
+  top: 15px;
+  right: 15px;
+  font-size: 15px;
+  text-align: center;
+}
+
+.favoriteButton:hover{
+  cursor: pointer;
+  font-size: 17px;
 }
